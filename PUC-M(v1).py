@@ -320,11 +320,11 @@ class push_up(ft.UserControl):
             container.content.controls.pop()
             container.content.controls.pop()
             # анимация
-            if len(container.content.controls) > 14:
+            if len(container.content.controls) > 19:
                 t+=1
             if t > 2:
                 t = 0
-                container.content.controls.pop(14)
+                container.content.controls.pop()
             # этап : начальное положение
             if s < 13:
                 # начальная точка, конечная точка, цвет, толщина
@@ -377,9 +377,9 @@ def open_camera2(e):
 
 # кнопка 1 игры
 button = ft.Container(ft.ElevatedButton(
-    'Flying Head',
+    'Динамичные отжимания',
     on_click=open_camera,
-    width=200,
+    width=240,
     height=50,
     color='#000000',
     bgcolor='#d4f211'
@@ -389,14 +389,14 @@ button = ft.Container(ft.ElevatedButton(
 
 # кнопка 2 игры
 button2 = ft.Container(ft.ElevatedButton(
-    'Счётчик отжиманий',
+    'Отжимайся на максимум',
     on_click=open_camera2,
-    width=200,
+    width=240,
     height=50,
     color='#000000',
     bgcolor='#d4f211'
 ),
-    margin=ft.margin.only(left=900, top=1000)
+    margin=ft.margin.only(left=900, top=950)
 )
 
 # Создание основного фона
@@ -424,57 +424,100 @@ info_bg = ft.Row(
     ]
 )
 
+# иконка puc-m
+pucm = ft.Container(
+    ft.Image(
+        src=f"puc-m.png",
+        width=180,
+        height=180),
+    margin=ft.margin.only(left=1320, top=160)
+)
+
 # текст имя проекта
 name_proj = ft.Container(
     ft.Text("Push up coach master", color='#ffff00', size=40),
-    margin=ft.margin.only(left=1400, top=210)
+    margin=ft.margin.only(left=1500, top=210)
 )
 
 # иконка мирэа
 mirea = ft.Container(
     ft.Image(
-        src=f"mirea.jfif",
+        src=f"mir.png",
         width=300,
         height=300),
     margin=ft.margin.only(left=1470, top=320)
 )
 
-# текст разработчики
-developers = ft.Container(
-    ft.Text("разработчики:", color='#ffff00', size=40),
-    margin=ft.margin.only(left=1400, top=700)
+# лидерборд
+leader = ft.Container(
+    ft.Image(
+        src=f"leader.png",
+        width=1000,
+        height=800),
+    margin=ft.margin.only(left=1400, top=470)
 )
 
-antonov = ft.Container(
-    ft.Text("antonov", color='#ffff00', size=40),
-    margin=ft.margin.only(left=1400, top=750)
+# текст топ игроков
+top = ft.Container(
+    ft.Text("Топ игроков:", color='#F8173E', size=50),
+    margin=ft.margin.only(left=1320, top=700)
 )
 
-ishutin = ft.Container(
-    ft.Text("ishutin", color='#ffff00', size=40),
-    margin=ft.margin.only(left=1400, top=800)
-)
-
-kagarmanov = ft.Container(
-    ft.Text("kagarmanov", color='#ffff00', size=40),
-    margin=ft.margin.only(left=1400, top=850)
-)
-
-gurin = ft.Container(
-    ft.Text("gurin", color='#ffff00', size=40),
-    margin=ft.margin.only(left=1400, top=900)
+# top фото
+topf = ft.Container(
+    ft.Image(
+        src=f"top.png",
+        width=280,
+        height=380),
+    margin=ft.margin.only(left=1310, top=780)
 )
 
 # текстовое поля для игры 1
 rule_game = ft.Container(
-    ft.Text("Поднимайся и опускайся, чтобы не задеть предметы", color='#000000', size=20),
+    ft.Text("Надеюсь он не взорвет ваш смартфон или планшет.", color='#000000', size=22),
     margin=ft.margin.only(left=250, top=800)
 )
 
 # текстовое поля для игры 2
 rule_game2 = ft.Container(
-    ft.Text("Подсчёт обычных отжиманий. Смотреть вперед!", color='#000000', size=20),
-    margin=ft.margin.only(left=250, top=1000)
+    ft.Text("Не забывайте улыбаться в камеру после каждого подхода.", color='#000000', size=22),
+    margin=ft.margin.only(left=250, top=950)
+)
+
+# 1 место
+top1 = ft.Container(
+    ft.Text("Antonoof - 55", color='#FFD700', size=25),
+    margin=ft.margin.only(left=1670, top=800)
+)
+
+# 2 место
+top2 = ft.Container(
+    ft.Text("Kagarmanov - 52", color='#C0C0C0', size=20),
+    margin=ft.margin.only(left=1720, top=852)
+)
+
+# 3 место
+top3 = ft.Container(
+    ft.Text("Gurin - 48", color='#CD7F32', size=20),
+    margin=ft.margin.only(left=1720, top=896)
+)
+
+# 4 место
+top4 = ft.Container(
+    ft.Text("Ishutin - 45", color='#000000', size=20),
+    margin=ft.margin.only(left=1720, top=940)
+)
+
+# 5 место
+top5 = ft.Container(
+    ft.Text("Machine - 41", color='#000000', size=20),
+    margin=ft.margin.only(left=1720, top=984)
+)
+
+# 6 место
+top6 = ft.Container(
+    ft.Text("Новичок - 35", color='#000000', size=20),
+    margin=ft.margin.only(left=1720, top=1034)
 )
 
 # Задний фон который включает в себя все контейнеры
@@ -490,12 +533,17 @@ container = ft.Container(
             name_proj,
             button,
             button2,
+            pucm,
             mirea,
-            developers,
-            antonov,
-            ishutin,
-            kagarmanov,
-            gurin,
+            leader,
+            topf,
+            top,
+            top1,
+            top2,
+            top3,
+            top4,
+            top5,
+            top6,
             rule_game,
             rule_game2
         ]
